@@ -62,7 +62,9 @@ Data were randomly split with an 80:20 ratio for the training and testing datase
 #### Logistic Regression
 Logistic regression is a statistical model that uses the logistic function:
 
+
 $$Pr(X_i) = {\frac{exp(\beta_0 + \beta_1X_i + \beta_2X_2 + \beta_3X_3 + \beta_4X_4 + \beta_5X_5)}{1 + exp (\beta_0 + \beta_1X_i + \beta_2X_2 + \beta_3X_3 + \beta_4X_4 + \beta_5X_5)}}$$
+
 
 to predict a binary outcome variable. In logistic regression, the likelihood of the observed data is maximized by finding best coefficients $\beta_i$. In order to reduce complexity and increase interpretability, stepwise feature selection was used as well. We used AIC (Akaike Information Criteria) to minimize the stepAIC value to derive a reduced feature set. Models were tested on the held-out 20% test set, and trained on the 80% training set.
 #### Random Forest
@@ -98,6 +100,8 @@ The Random Forest classifier with 1000 trees gave a similar performance to logis
 | Logistic Regression with Stepwise Feature Selection | 68.56%            | 62.89%           | 0.64     | 0.663  |
 | Random Forest                                       | 63.66%            | 66.49%           | 0.6860   | 0.666  |
 | Support Vector Machine with RBF Kernel              | 63.66%            | 63.40%           | 0.6758   | 0.6926 |
+
+
 The four models that we built and tested all have comparable performance. The strong contribution of activity during sleep periods to a lower than average aggregate mental status is promising for our hypothesis. Comparing the ROC curves for each model, we find that the SVM performed best (AUC=0.6926), closely followed by logistic regression (AUC=0.682) without subset selection. Unfortunately, none of the SAWA measures had high contributions in the logistic regression models, implying the possibility that there is no direct contribution from measures related to sleep efficiency or duration on mental health outcomes. However, the random forest model gives a different set of important variables from stepwise feature search. There may be more complex interactions going on between variables across this dataset that aren’t adequately captured by any single method implemented here.
 
 **![](https://docs.google.com/drawings/u/0/d/sQqa_0tU-Kl_LVHI-h_wGsg/image?w=433&h=388&rev=20&ac=1&parent=1qnendKbl-k_8iGXfAhp8wGT6RfZtK3aCH-UKfmvfqWg)**
